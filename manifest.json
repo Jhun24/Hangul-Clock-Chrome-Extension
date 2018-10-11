@@ -1,0 +1,15 @@
+{
+    "version":"1.0",
+    "manifest_version": 2,
+    "name":"한글시계",
+    "icons":{
+        "50":"image/hangul_clock50.png"
+    },
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "web_accessible_resources": ["image/background.jpg"],
+    "permissions": [
+        "storage"
+    ]
+}

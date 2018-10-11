@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/material.min.css">
+  <script src="js/material.min.js"></script>
+
+  <style>
+
+    .text{
+      width:300px;
+      height:40px;
+      margin:auto;
+    }
+
+    .img{
+      width:300px;
+      height:40px;
+
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin:auto;
+      margin-top:40px;
+    }
+
+    .img > p{
+      width:200px;
+      height:40px;
+      
+      display: flex;
+      align-items: center;
+      color:rgb(194,194,194);
+    }
+
+    .img > label{
+      width:60px;
+      height:30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .save-box{
+      width:300px;
+      height:40px;
+
+      margin:auto;
+      margin-top:60px;
+      padding-bottom:20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .save-box > button{
+      width:90px;
+      height:40px;
+
+      font-size:14px !important;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <form class="text" action="#">
+    <div id="name-box" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" id="name">
+      <label class="mdl-textfield__label" for="name">이름을 입력해주세요</label>
+    </div>
+  </form>
+
+  <div class="img">
+    <p id='background-image-name'>배경화면을 설정해주세요</p>
+
+    <input type="file" name="background" id="background" style="display:none">
+    <label for="background" id="background-btn" class="mdl-button mdl-js-button mdl-button--raised" accept=".jpg, .jpeg, .png">upload</label>
+  </div>
+
+  <div class="save-box">
+      <button class="mdl-button mdl-js-button mdl-button--raised" id="save">
+          Save
+      </button>
+  </div>
+
+
+<script src="js/option.js"></script>
+</body>
+</html>
