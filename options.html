@@ -2,15 +2,30 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/material.min.css">
-  <script src="js/material.min.js"></script>
 
   <style>
 
-    .text{
+    .name{
       width:300px;
-      height:40px;
+      height:60px;
       margin:auto;
+    }
+
+    .name > p{
+      color:rgb(194,194,194);
+      font-size:14px;
+      font-weight:400;
+    }
+
+    .name > input{
+      width:calc(100% - 10px);
+      height:24px;
+      border:0px;
+      border-bottom:1px solid rgb(194,194,194);
+      padding-left:10px;
+      outline:none;
+      font-size:14px;
+
     }
 
     .img{
@@ -35,12 +50,36 @@
     }
 
     .img > label{
-      width:60px;
+      width:90px;
       height:30px;
+
+      font-size:14px !important;
+      border:0px;
+      border-radius:5px;
+      background-color:rgba(158,158,158,.2);
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .preview-image{
+      width:300px;
+      height:auto;
+      margin:auto;
+      margin-top:30px;
+    }
+
+    .preview-image > p{
+      color:rgb(194,194,194);
+      font-size:14px;
+      font-weight:400;
+    }
+
+    .preview-image > img{
+      width:300px;
+      height:auto;
     }
 
     .save-box{
@@ -58,9 +97,14 @@
 
     .save-box > button{
       width:90px;
-      height:40px;
+      height:30px;
 
       font-size:14px !important;
+       
+      border:0px;
+      border-radius:5px;
+      background-color:rgba(158,158,158,.2);
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 
       display: flex;
       align-items: center;
@@ -70,24 +114,25 @@
 </head>
 <body>
 
-  <form class="text" action="#">
-    <div id="name-box" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="name">
-      <label class="mdl-textfield__label" for="name">이름을 입력해주세요</label>
-    </div>
-  </form>
+  <div class='name'>
+    <p>이름을 입력해주세요</p>
+    <input type="text" id="name">
+  </div>
+
+  <div class="preview-image">
+    <p>현재 저장된 배경화면</p>
+    <img src="" id="preview">
+  </div>
 
   <div class="img">
     <p id='background-image-name'>배경화면을 설정해주세요</p>
 
     <input type="file" name="background" id="background" style="display:none">
-    <label for="background" id="background-btn" class="mdl-button mdl-js-button mdl-button--raised" accept=".jpg, .jpeg, .png">upload</label>
+    <label for="background" id="background-btn" accept=".jpg, .jpeg, .png">upload</label>
   </div>
 
   <div class="save-box">
-      <button class="mdl-button mdl-js-button mdl-button--raised" id="save">
-          Save
-      </button>
+      <button id="save">Save</button>
   </div>
 
 

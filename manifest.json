@@ -1,5 +1,5 @@
 {
-    "version":"1.0",
+    "version":"1.1",
     "manifest_version": 2,
     "name":"한글시계",
     "icons":{
@@ -7,6 +7,10 @@
     },
     "chrome_url_overrides": {
         "newtab": "index.html"
+    },
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab":true
     },
     "web_accessible_resources": ["image/background.jpg"],
     "permissions": [

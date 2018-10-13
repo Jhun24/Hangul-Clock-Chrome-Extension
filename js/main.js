@@ -31,6 +31,10 @@ let minute_nine = document.getElementById('minute-nine');
 let nowHour = 0;
 let nowMinute = 0;
 
+let userName;
+let fileData;
+let fileName;
+
 let hourArray = [
     hour , hour_one , hour_two , hour_three , hour_four , hour_five , hour_six , hour_seven , hour_eight , hour_nine , hour_ten , hour_eleven , hour_twelve
 ]
@@ -50,7 +54,23 @@ let secondPlaceMinuteArray = [
 
 window.onload = ()=>{
     hangul_clock(getTime);
+    
 }
+function restore_options() {
+    chrome.storage.local.get('hangul_clock', function(items) {
+        userName = items.hangul_clock.userName;
+        fileName = items.hangul_clock.fileName;
+        fileData = items.hangul_clock.fileData;
+
+        if(typeof(fileName) == 'string' && typeof(fileData) == 'string'){
+            document.getElementsByTagName('body')[0].style.backgroundImage = 'url('+fileData+')';
+        }
+        else{
+            document.getElementsByTagName('body')[0].style.backgroundImage = "url('../image/background.jpg')";
+        }        
+    });
+}
+document.addEventListener('DOMContentLoaded', restore_options);
 
 let hangul_clock = (callback)=>{
     let hour = (new Date().getHours()) % 12;
