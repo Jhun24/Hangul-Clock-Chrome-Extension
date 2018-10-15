@@ -62,6 +62,10 @@ let restore_options= ()=>{
         userName = items.hangul_clock.userName;
         fileName = items.hangul_clock.fileName;
         fileData = items.hangul_clock.fileData;
+        
+        if(typeof(userName) == 'string'){
+            hangul_clock_user_name.innerHTML = userName + "님!"
+        }
 
         if(typeof(fileName) == 'string' && typeof(fileData) == 'string'){
             document.getElementsByTagName('body')[0].style.backgroundImage = 'url('+fileData+')';
