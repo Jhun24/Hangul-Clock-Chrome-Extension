@@ -28,6 +28,11 @@ let minute_seven = document.getElementById('minute-seven');
 let minute_eight = document.getElementById('minute-eight');
 let minute_nine = document.getElementById('minute-nine');
 
+let hangul_clock_box = document.getElementById('hangul-clock');
+let hangul_clock_text = document.getElementById('hangul-clock-text');
+let hangul_clock_user_name = document.getElementById('hangul-clock-user-name');
+let lisense = document.getElementById('lisense');
+
 let nowHour = 0;
 let nowMinute = 0;
 
@@ -52,11 +57,7 @@ let secondPlaceMinuteArray = [
     minute , minute_one , minute_two , minute_three , minute_four , minute_five , minute_six , minute_seven , minute_eight , minute_nine , minute_ten
 ]
 
-window.onload = ()=>{
-    hangul_clock(getTime);
-    
-}
-function restore_options() {
+let restore_options= ()=>{
     chrome.storage.local.get('hangul_clock', function(items) {
         userName = items.hangul_clock.userName;
         fileName = items.hangul_clock.fileName;
@@ -70,7 +71,13 @@ function restore_options() {
         }        
     });
 }
-document.addEventListener('DOMContentLoaded', restore_options);
+
+let initAnimate = ()=>{
+    hangul_clock_box.classList.add('animated','fadeIn');
+    lisense.classList.add('animated','slideInUp');
+    hangul_clock_text.classList.add('animated','slideInUp');
+    hangul_clock_user_name.classList.add('animated','slideInDown');
+}
 
 let hangul_clock = (callback)=>{
     let hour = (new Date().getHours()) % 12;
@@ -218,3 +225,9 @@ let clear = ()=>{
     minute_eight.classList.remove('check');
     minute_nine.classList.remove('check');
 }
+
+window.onload = ()=>{
+    initAnimate();
+    hangul_clock(getTime);
+}
+document.addEventListener('DOMContentLoaded', restore_options);
