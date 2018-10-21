@@ -60,12 +60,12 @@ let secondPlaceMinuteArray = [
 let restore_options= ()=>{
     chrome.storage.local.get('hangul_clock', function(items) { 
         if(items.hangul_clock != undefined){
-            if(items.hangul_clock.userName != 'undefined'){
+            if(items.hangul_clock.userName != undefined){
                 userName = items.hangul_clock.userName;
                 hangul_clock_user_name.innerHTML = userName + "님!"
             }
     
-            if(items.hangul_clock.fileName != 'undefined' && items.hangul_clock.fileData != 'undefined'){
+            if(items.hangul_clock.fileName != undefined && items.hangul_clock.fileData != undefined){
                 fileName = items.hangul_clock.fileName;
                 fileData = items.hangul_clock.fileData;
                 document.getElementsByTagName('body')[0].style.backgroundImage = 'url('+fileData+')';

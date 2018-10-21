@@ -38,12 +38,23 @@ let resolutionData = [
 
 function save_options() {
     userName = userNameInput.value;
+    let data = {
+        userName:userName,
+        fileName:fileName,
+        fileData:fileData
+    }
+
+    if(userNameInput.value == "" || userNameInput.value == undefined){
+        delete data.userName;
+    }
+
+    if(fileInput.value == "" || fileInput.value == undefined){
+        delete data.fileData;
+        delete data.fileName;
+    }
+
     chrome.storage.local.set({
-        'hangul_clock':{
-            userName : userName,
-            fileName : fileName,
-            fileData : fileData
-        }
+        'hangul_clock': data
     }, function() {
         chrome.notifications.create({
             title: '한글시계',
