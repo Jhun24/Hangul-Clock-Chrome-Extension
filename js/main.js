@@ -58,21 +58,25 @@ let secondPlaceMinuteArray = [
 ]
 
 let restore_options= ()=>{
-    chrome.storage.local.get('hangul_clock', function(items) {
-        userName = items.hangul_clock.userName;
-        fileName = items.hangul_clock.fileName;
-        fileData = items.hangul_clock.fileData;
-        
-        if(typeof(userName) == 'string'){
-            hangul_clock_user_name.innerHTML = userName + "님!"
-        }
-
-        if(typeof(fileName) == 'string' && typeof(fileData) == 'string'){
-            document.getElementsByTagName('body')[0].style.backgroundImage = 'url('+fileData+')';
-        }
+    chrome.storage.local.get('hangul_clock', function(items) { 
+        if(items.hangul_clock != undefined){
+            if(items.hangul_clock.userName != 'undefined'){
+                userName = items.hangul_clock.userName;
+                hangul_clock_user_name.innerHTML = userName + "님!"
+            }
+    
+            if(items.hangul_clock.fileName != 'undefined' && items.hangul_clock.fileData != 'undefined'){
+                fileName = items.hangul_clock.fileName;
+                fileData = items.hangul_clock.fileData;
+                document.getElementsByTagName('body')[0].style.backgroundImage = 'url('+fileData+')';
+            }
+            else{
+                document.getElementsByTagName('body')[0].style.backgroundImage = "url('../image/bg.jpeg')";
+            }    
+        } 
         else{
-            document.getElementsByTagName('body')[0].style.backgroundImage = "url('../image/background.jpg')";
-        }        
+            document.getElementsByTagName('body')[0].style.backgroundImage = "url('../image/bg.jpeg')";
+        }    
     });
 }
 
@@ -230,8 +234,30 @@ let clear = ()=>{
     minute_nine.classList.remove('check');
 }
 
+// let history = ()=>{
+//     chrome.topSites.get((items)=>{
+//         for(i = 0; i<6; i++){
+        
+//             let html = '<div class="data">'
+//             html += '<a href="'+items[i].url+'">'
+//             html += '<div class="preIcon">'+items[i].title[0]+'</div>'
+//             if(items[i].title.length > 9){
+//                 html += '<div class="title">'+items[i].title.substring(0,7)+'...'+'</div>'
+//             }
+//             else{
+//                 html += '<div class="title">'+items[i].title+'</div>'
+//             }
+//             html += '</a>'
+//             html += '</div>'
+
+//             document.getElementById('side-bar-data').innerHTML = document.getElementById('side-bar-data').innerHTML + html;
+//         }
+//     });
+// }
+
 window.onload = ()=>{
     initAnimate();
+    // history();
     hangul_clock(getTime);
 }
 document.addEventListener('DOMContentLoaded', restore_options);

@@ -5,6 +5,84 @@ body{
     overflow:hidden;
 }
 
+/* body > .side-bar{
+    width:80px;
+    height:calc(100% + 100px);
+
+    position: absolute;
+    margin-top:-100px;
+
+    left:calc(100% - 100px);
+    
+    display:flex;
+    align-items: center;
+}
+
+
+.side-bar > .data-box{
+    width:100%;
+    height:580px;
+}
+
+.side-bar > .data-box > .data{
+    width:100%;
+    height:80px;
+
+    margin-top:20px;
+
+    user-select: none;
+
+}
+
+.side-bar > .data-box:first-child{
+    margin-top:0px;
+}
+
+.side-bar > .data-box > .data > a{
+    width:80px;
+    height:80px;
+
+    text-decoration: none;
+}
+
+.side-bar > .data-box > .data > a > .preIcon{
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    background-color:gray;
+
+    color:#fff;
+    font-size:20px;
+    font-family: sans-serif;
+    font-weight:800;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin:auto;
+}
+
+.side-bar > .data-box > .data > a > .title{
+    width:100%;
+    height:20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color:#fff;
+    color:black;
+
+    margin:auto;
+    margin-top:10px;
+
+    font-size:10px;
+    font-weight:800;
+    font-family: sans-serif;
+
+    border-radius:50px;
+} */
 
 body > header{
     width:100%;
